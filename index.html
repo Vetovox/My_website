@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Game Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="page-container">
+        <!-- Боковая панель -->
+        <div class="sidebar">
+            <div class="logo"></div> <!-- Заменили h1 на div -->
+            
+            <div class="menu">
+                <a href="#" class="active" onclick="selectPage(this, 'My Game Content')">My Game</a>
+                <a href="#" onclick="selectPage(this, 'Devlog Content')">Devlog</a>
+                <a href="#" onclick="selectPage(this, 'Gallery Content')">Gallery</a>
+                <a href="#" onclick="selectPage(this, 'Contact Content')">Contact</a>
+                <a href="#" onclick="selectPage(this, 'About Content')">About</a>
+            </div>
+
+            <div class="social-icons">
+               <a href="https://www.youtube.com/@Vetovox" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-patreon"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+
+        <!-- Контент -->
+        <div id="content-area" style="padding: 50px;">
+            <h2>My Game Content</h2> <!-- Заменили h1 на h2 -->
+        </div>
+    </div>
+
+    <script>
+        function selectPage(clickedElement, title) {
+            document.querySelectorAll('.menu a').forEach(link => link.classList.remove('active'));
+            clickedElement.classList.add('active');
+            document.getElementById('content-area').innerHTML = `<h2>${title}</h2>`;
+        }
+    </script>
+</body>
+</html>
