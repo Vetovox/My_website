@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VETOVOX</title>
-    <!-- Подключение шрифта Oswald -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -12,36 +11,27 @@
 </head>
 <body>
 
-            <!-- Боковая панель -->
-        <div class="sidebar">
-            <!-- Просто картинка, без контейнеров и классов -->
-            <img src="AVATAR002.png" class="my-logo">
-            
-            <div class="menu">
-                <a href="#" class="active" onclick="selectPage(this, 'Home Content')">Home</a>
-                <!-- ...остальные ссылки... -->
-                <a href="#" onclick="selectPage(this, 'My Game Content')">My Game</a>
-                <a href="#" onclick="selectPage(this, 'Devlog Content')">Devlog</a>
-                <a href="#" onclick="selectPage(this, 'Gallery Content')">Gallery</a>
-                <a href="#" onclick="selectPage(this, 'Contact Content')">Contact</a>
-                <a href="#" onclick="selectPage(this, 'About Content')">About</a>
-            </div>
-
-            <div class="social-icons">
-                <a href="https://www.youtube.com/@Vetovox" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-patreon"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
+    <div class="sidebar">
+        <img src="AVATAR002.png" class="my-logo">
+        <div class="menu">
+            <a href="#" class="active" onclick="selectPage(this, 'Home Content')">Home</a>
+            <a href="#" onclick="selectPage(this, 'My Game Content')">My Game</a>
+            <a href="#" onclick="selectPage(this, 'Devlog Content')">Devlog</a>
+            <a href="#" onclick="selectPage(this, 'Gallery Content')">Gallery</a>
+            <a href="#" onclick="selectPage(this, 'Contact Content')">Contact</a>
+            <a href="#" onclick="selectPage(this, 'About Content')">About</a>
         </div>
-
-        <!-- Контент -->
-        <div id="content-area">
-            <h2>Welcome!</h2>
-            <p>Это главная страница моего сайта.</p>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@Vetovox" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-patreon"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
     </div>
+
+    <!-- Контент теперь пуст, скрипт сам его заполнит -->
+    <div id="content-area"></div>
 
     <script src="script.js"></script>
 </body>
