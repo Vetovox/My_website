@@ -11,51 +11,56 @@ body {
     min-height: 100vh;
 }
 
+/* ФИКСАЦИЯ БОКОВОЙ ПАНЕЛИ - УВЕЛИЧИЛИ ШИРИНУ */
 .sidebar {
-    width: 250px;
-    flex-shrink: 0;
+    width:400px; /* Было 250px, теперь шире */
     height: 100vh;
     background-color: #E8E8E8;
+    position: fixed; 
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding-top: 40px;
-    position: sticky;
-    top: 0;
 }
 
-.logo {
-    background-image: url('AVATAR001.jpg');
-    background-size: cover;
-    background-position: center;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: none;
+/* Логотип */
+.my-logo {
+    width: 300px;         /* Просто ширина. Хочешь шире — ставь больше цифру */
+    height: auto;         /* Высота подстроится сама под картинку */
+    display: block;
+    margin: 20px 0 20px 0px;    /* Центрирует картинку */
 }
 
 /* МЕНЮ */
 .menu {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: flex-start; /* Сдвинули влево для баланса */
     margin-top: 50px;
+    padding-left: 70px;     /* Добавили отступ слева, чтобы кнопки не прилипали */
     gap: 5px;
+    flex-grow: 1; 
+    overflow-y: auto;
 }
+
+.menu::-webkit-scrollbar { display: none; }
 
 .menu a {
     text-decoration: none;
     color: #2c2e31;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    padding: 15px 0;
     cursor: pointer;
     transition: 0.3s;
     position: relative;
+    width: 100%; /* Растянули на всю ширину панели */
 }
 
+/* Эффект стрелочки */
 .menu a::before {
     content: "";
     width: 10px;
@@ -68,10 +73,34 @@ body {
     transition: all 0.3s ease;
 }
 
-.menu a:hover { color: #4169E1; }
+.menu a:hover {
+    color: #4169E1;
+    padding-left: 10px;
+}
 .menu a:hover::before { opacity: 1; transform: translateX(0); margin-right: 10px; }
 .menu a.active { color: #4169E1; }
 .menu a.active::before { opacity: 1; transform: translateX(0); margin-right: 10px; }
+
+/* ИКОНКИ */
+.social-icons { 
+    height: 130px;
+    display: flex; 
+    gap: 20px; 
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: #E8E8E8;
+}
+.social-icons a { color: #2c2e31; font-size: 22px; transition: 0.2s; }
+.social-icons a:hover { color: #4169E1; }
+
+/* Контент - СДВИГ МАРДЖИНА ПОД ШИРИНУ ПАНЕЛИ */
+#content-area { 
+    flex-grow: 1; 
+    padding: 50px; 
+    background-color: #f9f8f3;
+    margin-left: 400px; /* Соответствует ширине .sidebar (300px) */
+}
 
 /* ГАЛЕРЕЯ */
 .gallery-grid {
@@ -96,8 +125,40 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Соцсети и Контент */
-.social-icons { margin-top: auto; padding-bottom: 30px; display: flex; gap: 20px; }
-.social-icons a { color: #2c2e31; font-size: 22px; transition: 0.2s; }
-.social-icons a:hover { color: #4169E1; }
-#content-area { flex-grow: 1; padding: 50px; background-color: #f9f8f3; }
+/* СТИЛИ ДЛЯ ABOUT */
+.about-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-art {
+    flex-shrink: 0;
+    width: 300px;
+}
+
+.about-art img {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+}
+
+.about-text-custom {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #2c2e31;
+    line-height: 1.6;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .about-container { flex-direction: column; }
+    .about-art { width: 100%; margin-top: 20px; }
+}

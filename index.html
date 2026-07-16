@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Game Site</title>
+    <title>VETOVOX</title>
+    <!-- Подключение шрифта Oswald -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="page-container">
-        <!-- Боковая панель -->
+            <!-- Боковая панель -->
         <div class="sidebar">
-            <div class="logo"></div>
+            <!-- Просто картинка, без контейнеров и классов -->
+            <img src="AVATAR002.png" class="my-logo">
             
             <div class="menu">
-                <a href="#" class="active" onclick="selectPage(this, 'My Game Content')">My Game</a>
+                <a href="#" class="active" onclick="selectPage(this, 'Home Content')">Home</a>
+                <!-- ...остальные ссылки... -->
+                <a href="#" onclick="selectPage(this, 'My Game Content')">My Game</a>
                 <a href="#" onclick="selectPage(this, 'Devlog Content')">Devlog</a>
                 <a href="#" onclick="selectPage(this, 'Gallery Content')">Gallery</a>
                 <a href="#" onclick="selectPage(this, 'Contact Content')">Contact</a>
@@ -33,7 +38,8 @@
 
         <!-- Контент -->
         <div id="content-area">
-            <h2>My Game Content</h2>
+            <h2>Welcome!</h2>
+            <p>Это главная страница моего сайта.</p>
         </div>
     </div>
 
