@@ -54,7 +54,6 @@ body { margin: 0; padding: 0; background-color: #1F1B1A; font-family: sans-serif
     .close-menu { display: block; }
     .menu { padding-left: 30px; }
     .social-icons { padding-left: 30px; }
-    .about-container { margin: 80px 10px 20px 10px !important; width: auto !important; }
     
     /* Скрываем стрелки галереи на телефонах */
     .nav-arrow { display: none !important; }
@@ -75,16 +74,22 @@ body { margin: 0; padding: 0; background-color: #1F1B1A; font-family: sans-serif
     filter: brightness(80%) !important;
 }
 
-/* Контейнер */
+/* Исправленный контейнер (теперь адаптивный) */
 .about-container { 
     display: flex !important; 
-    flex-wrap: nowrap !important; 
+    flex-wrap: wrap !important; 
     gap: 40px !important; 
-    align-items: flex-start !important; 
+    align-items: center !important; 
+    justify-content: center !important;
     max-width: 900px !important; 
-    margin: 200px 0 0 100px !important; 
+    margin: 100px auto 50px auto !important; 
+    padding: 0 20px !important;
 }
-.about-art { flex-shrink: 0; width: 300px; }
+.about-text { 
+    flex: 1 1 300px !important; 
+    min-width: 280px !important; 
+}
+.about-art { flex: 0 0 300px !important; margin-top: 20px !important; }
 .about-art img { width: 100%; border-radius: 15px; }
 .about-text-custom { font-size: 24px; color: #E8E8E8; line-height: 1.6; }
 
