@@ -50,18 +50,32 @@ body { margin: 0; padding: 0; background-color: #1F1B1A; font-family: sans-serif
     .burger-menu { display: block; }
     .sidebar { left: -400px; height: 100%; overflow-y: auto; padding-bottom: 80px; }
     .sidebar.active { left: 0; }
-    #content-area { margin-left: 0 !important; }
+    #content-area { margin-left: 0 !important; padding: 20px !important; }
     .close-menu { display: block; }
     .menu { padding-left: 30px; }
     .social-icons { padding-left: 30px; }
-    .about-container { margin: 80px 20px 20px 20px !important; flex-direction: column-reverse !important; align-items: center !important; }
+    .about-container { margin: 80px 10px 20px 10px !important; width: auto !important; }
+    
+    /* Скрываем стрелки галереи на телефонах */
+    .nav-arrow { display: none !important; }
 }
 
 /* ГАЛЕРЕЯ И ОБЩИЕ СТИЛИ */
 .gallery-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important; gap: 15px !important; padding: 20px !important; }
-.gallery-grid img { width: 100% !important; height: 300px !important; object-fit: cover !important; border-radius: 8px !important; }
+.gallery-grid img { 
+    width: 100% !important; 
+    height: 300px !important; 
+    object-fit: cover !important; 
+    border-radius: 8px !important; 
+    transition: transform 0.3s ease, filter 0.3s ease !important; 
+    cursor: pointer !important;
+}
+.gallery-grid img:hover {
+    transform: scale(1.05) !important;
+    filter: brightness(80%) !important;
+}
 
-/* Контейнер: на ПК - картинка справа */
+/* Контейнер */
 .about-container { 
     display: flex !important; 
     flex-wrap: nowrap !important; 
