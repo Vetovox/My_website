@@ -125,7 +125,7 @@ function openImage(src) {
 function createBtn(text, position) {
     const btn = document.createElement('div');
     btn.innerHTML = text;
-    btn.className = 'nav-arrow'; // Добавили класс для скрытия на мобильных
+    btn.className = 'nav-arrow';
     btn.style.cssText = `position:absolute; ${position}; top:50%; transform:translateY(-50%); color:white; font-size:60px; font-weight:bold; user-select:none; padding:20px; cursor:pointer; z-index:10000;`;
     return btn;
 }
@@ -135,5 +135,9 @@ window.onload = function() {
     if (lastPage) {
         const links = document.querySelectorAll('.menu a');
         links.forEach(link => { if (link.textContent.trim() === lastPage.replace(' Content', '')) selectPage(link, lastPage); });
+    } else {
+        // Фикс: открываем главную по умолчанию
+        const homeLink = document.querySelector('.menu a');
+        selectPage(homeLink, 'Home Content');
     }
 };
