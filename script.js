@@ -18,8 +18,39 @@ function selectPage(clickedElement, pageName) {
     const contentArea = document.getElementById('content-area');
 
     if (pageName === 'Home Content') {
-        contentArea.innerHTML = `<h2>Welcome!</h2><p>Это главная страница моего сайта.</p>`;
-    } 
+        // Укажи здесь имя файла своей САМОЙ ПОСЛЕДНЕЙ картинки
+        const latestGalleryImg = "Art_10.jpg"; 
+
+        contentArea.innerHTML = `
+            <div class="home-container">
+                <section class="hero-block">
+                    <h1>VETOVOX</h1>
+                    <p>Здесь я работаю над игрой, книгой и комиксом.</p>
+                </section>
+
+                <div class="news-main-wrapper">
+                    <div class="news-column">
+                        <h3>Девлог</h3>
+                        <div class="news-card text-card" onclick="selectPage(null, 'Devlog Content')">
+                            <p>Последняя запись из девлога</p>
+                        </div>
+                    </div>
+                    <div class="news-column">
+                        <h3>Игра</h3>
+                        <div class="news-card text-card" onclick="selectPage(null, 'My Game Content')">
+                            <p>Последние изменения в игре</p>
+                        </div>
+                    </div>
+                    <div class="news-column">
+                        <h3>Галерея</h3>
+                        <div class="news-card gallery-preview" onclick="selectPage(null, 'Gallery Content')">
+                            <img src="${latestGalleryImg}" alt="Последний арт">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
     else if (pageName === 'My Game Content') {
         contentArea.innerHTML = `<h2>My Game</h2><p>Здесь информация о моей игре.</p>`;
     }
@@ -125,7 +156,7 @@ function openImage(src) {
 function createBtn(text, position) {
     const btn = document.createElement('div');
     btn.innerHTML = text;
-    btn.className = 'nav-arrow';
+    btn.className = 'nav-arrow'; 
     btn.style.cssText = `position:absolute; ${position}; top:50%; transform:translateY(-50%); color:white; font-size:60px; font-weight:bold; user-select:none; padding:20px; cursor:pointer; z-index:10000;`;
     return btn;
 }
@@ -136,8 +167,7 @@ window.onload = function() {
         const links = document.querySelectorAll('.menu a');
         links.forEach(link => { if (link.textContent.trim() === lastPage.replace(' Content', '')) selectPage(link, lastPage); });
     } else {
-        // Фикс: открываем главную по умолчанию
-        const homeLink = document.querySelector('.menu a');
-        selectPage(homeLink, 'Home Content');
+        const firstLink = document.querySelector('.menu a');
+        selectPage(firstLink, 'Home Content');
     }
 };
