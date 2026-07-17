@@ -7,19 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Кнопка меню для мобильных -->
-    <div class="burger-menu" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </div>
-
+    <div class="burger-menu" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    
     <div class="sidebar" id="sidebar">
-        <!-- Кнопка закрытия -->
         <div class="close-menu" onclick="toggleMenu()">×</div>
-        
         <img src="AVATAR002.png" class="my-logo">
         <div class="menu">
             <a href="#" class="active" onclick="selectPage(this, 'Home Content')">Home</a>
@@ -38,23 +31,17 @@
         </div>
     </div>
 
+    <!-- Твой блок контента -->
     <div id="content-area">
-        <!-- Вот этот блок добавится на главную -->
-        <div class="home-container">
-            <section class="hero-block">
-                <h1>VETOVOX</h1>
-                <p>Здесь я работаю над игрой, книгой и комиксом.</p>
-            </section>
-            <section class="news-section">
-                <h2>Последние новости</h2>
-                <div class="news-grid">
-                    <article class="news-card">
-                        <span class="news-date">17.07.2026</span>
-                        <h3>Обновление сайта</h3>
-                        <p>Дизайн стал чище, добавлена навигация.</p>
-                    </article>
-                </div>
-            </section>
+        <div class="about-container">
+            <div class="about-text">
+                <h1>Hi! I'm VETOVOX!</h1>
+                <p class="about-text-custom">My name is Kate and this is my creative corner.</p>
+                <p class="about-text-custom">Here I am working on a game, a book, and a comic.</p>
+            </div>
+            <div class="about-art">
+                <img src="AVATAR002.png" alt="My Art">
+            </div>
         </div>
     </div>
 
