@@ -130,3 +130,10 @@ function createBtn(text, position) {
     return btn;
 }
 
+window.onload = function() {
+    const lastPage = localStorage.getItem('lastSelectedPage');
+    if (lastPage) {
+        const links = document.querySelectorAll('.menu a');
+        links.forEach(link => { if (link.textContent.trim() === lastPage.replace(' Content', '')) selectPage(link, lastPage); });
+    }
+};
