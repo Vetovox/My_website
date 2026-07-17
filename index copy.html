@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VETOVOX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Кнопка меню для мобильных -->
+    <div class="burger-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <!-- Кнопка закрытия -->
+        <div class="close-menu" onclick="toggleMenu()">×</div>
+        
+        <img src="AVATAR002.png" class="my-logo">
+        <div class="menu">
+            <a href="#" class="active" onclick="selectPage(this, 'Home Content')">Home</a>
+            <a href="#" onclick="selectPage(this, 'My Game Content')">My Game</a>
+            <a href="#" onclick="selectPage(this, 'Devlog Content')">Devlog</a>
+            <a href="#" onclick="selectPage(this, 'Gallery Content')">Gallery</a>
+            <a href="#" onclick="selectPage(this, 'Contact Content')">Contact</a>
+            <a href="#" onclick="selectPage(this, 'About Content')">About</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@Vetovox" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-patreon"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+    </div>
+
+    <div id="content-area"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

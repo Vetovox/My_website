@@ -55,7 +55,7 @@ function selectPage(clickedElement, pageName) {
                 </div>
             </div>`;
     } 
-    else if (pageName === 'Contact Content') {
+   else if (pageName === 'Contact Content') {
         contentArea.innerHTML = `
             <div class="about-container">
                 <div class="about-text" style="width: 100%;">
@@ -83,9 +83,9 @@ function selectPage(clickedElement, pageName) {
 function copyEmail() {
     const email = "allerti065@gmail.com";
     navigator.clipboard.writeText(email).then(() => {
-        const icon = document.querySelector('.copy-icon');
-        icon.classList.add('copied');
-        setTimeout(() => { icon.classList.remove('copied'); }, 2000);
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = "Copied!";
+        setTimeout(() => { btn.textContent = "Copy"; }, 2000);
     });
 }
 
