@@ -1,10 +1,18 @@
+function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) {
+        sidebar.classList.toggle('active');
+    }
+}
+
 function selectPage(clickedElement, pageName) {
     localStorage.setItem('lastSelectedPage', pageName);
     document.querySelectorAll('.menu a').forEach(link => link.classList.remove('active'));
     if (clickedElement) clickedElement.classList.add('active');
 
-    if (window.innerWidth <= 850) {
-        document.getElementById('sidebar').classList.remove('active');
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) {
+        sidebar.classList.remove('active');
     }
 
     const contentArea = document.getElementById('content-area');
@@ -51,10 +59,10 @@ function selectPage(clickedElement, pageName) {
         contentArea.innerHTML = `
             <div class="about-container">
                 <div class="about-text" style="width: 100%;">
-                    <h2 class="gallery-title" style="margin-bottom: 20px;">Contact</h2>
-                    <div style="display: flex; align-items: center; white-space: nowrap; gap: 10px; margin-bottom: 30px;">
+                    <h2 class="gallery-title" style="margin-bottom: 20px;"></h2>
+                    <div class="contact-wrapper">
                         <p class="about-text-custom" style="margin: 0;">For business inquiries, please reach out via email:</p>
-                        <span style="color: #E8E8E8; font-size: 24px; text-decoration: underline; font-family: sans-serif; cursor: text; user-select: text !important;">allerti065@gmail.com</span>
+                        <span class="email-link">allerti065@gmail.com</span>
                     </div>
                 </div>
                 <div class="about-art">

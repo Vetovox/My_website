@@ -4,6 +4,9 @@ body { margin: 0; padding: 0; background-color: #1F1B1A; font-family: sans-serif
 /* БОКОВАЯ ПАНЕЛЬ */
 .sidebar { width: 400px; height: 100vh; background-color: #E8E8E8; position: fixed; top: 0; left: 0; display: flex; flex-direction: column; padding-top: 40px; transition: 0.3s; z-index: 999; }
 
+/* Кнопка закрытия */
+.close-menu { display: none; position: absolute; top: 15px; right: 25px; font-size: 40px; color: #5D4037; cursor: pointer; font-family: sans-serif; }
+
 .my-logo { width: 300px; height: auto; display: block; margin: 20px 0 20px 0px; }
 
 .menu { display: flex; flex-direction: column; align-items: flex-start; margin-top: 50px; padding-left: 70px; gap: 5px; flex-grow: 1; overflow-y: auto; }
@@ -30,16 +33,43 @@ body { margin: 0; padding: 0; background-color: #1F1B1A; font-family: sans-serif
     .sidebar { left: -400px; }
     .sidebar.active { left: 0; }
     #content-area { margin-left: 0 !important; }
-    .about-container { margin: 80px 20px 20px 20px !important; }
+    .close-menu { display: block; }
+    
+    /* Мобильная версия About */
+    .about-container {
+        flex-direction: column-reverse;
+        margin: 80px 20px 20px 20px !important;
+        align-items: center;
+    }
+    .about-art { width: 250px !important; margin-bottom: 20px; }
 }
 
-/* ГАЛЕРЕЯ И ABOUT (остальное без изменений) */
+/* ГАЛЕРЕЯ И ABOUT */
 .gallery-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important; gap: 15px !important; padding: 20px !important; grid-auto-flow: dense; }
 .gallery-grid img { width: 100% !important; height: 300px !important; object-fit: cover !important; border-radius: 8px !important; cursor: zoom-in; transition: 0.3s; }
 .gallery-grid img:hover { transform: scale(1.02); }
-.about-container { display: flex; gap: 40px; align-items: flex-start; max-width: 900px; margin: 200px 0 0 100px; }
+
+.about-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; max-width: 900px; margin: 200px 0 0 100px; }
 .about-art { flex-shrink: 0; width: 300px; }
 .about-art img { width: 100%; border-radius: 15px; }
+.about-text { flex: 1; min-width: 300px; }
 .about-text-custom { font-family: 'Space Grotesk', sans-serif; font-size: 24px; color: #E8E8E8; line-height: 1.6; }
+
 h2 { color: #E8E8E8; font-family: 'Space Grotesk', sans-serif; }
 #content-area p { color: #E8E8E8; font-family: 'Space Grotesk', sans-serif; font-size: 20px; }
+.contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+.email-link {
+    color: #E8E8E8;
+    font-size: 24px;
+    text-decoration: underline;
+    font-family: sans-serif;
+    word-break: break-all;
+}
+@media (max-width: 850px) {
+    .contact-wrapper { align-items: center; text-align: center; }
+}
