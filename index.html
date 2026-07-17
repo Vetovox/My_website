@@ -11,7 +11,12 @@
 </head>
 <body>
 
-    <div class="sidebar">
+    <!-- Кнопка меню для мобильных -->
+    <div class="burger-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="sidebar" id="sidebar">
         <img src="AVATAR002.png" class="my-logo">
         <div class="menu">
             <a href="#" class="active" onclick="selectPage(this, 'Home Content')">Home</a>
@@ -30,7 +35,6 @@
         </div>
     </div>
 
-    <!-- Контент теперь пуст, скрипт сам его заполнит -->
     <div id="content-area"></div>
 
     <script src="script.js"></script>

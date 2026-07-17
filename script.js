@@ -1,15 +1,23 @@
-// Функция для переключения страниц
 function selectPage(clickedElement, pageName) {
     localStorage.setItem('lastSelectedPage', pageName);
-    
     document.querySelectorAll('.menu a').forEach(link => link.classList.remove('active'));
     if (clickedElement) clickedElement.classList.add('active');
+
+    if (window.innerWidth <= 850) {
+        document.getElementById('sidebar').classList.remove('active');
+    }
 
     const contentArea = document.getElementById('content-area');
 
     if (pageName === 'Home Content') {
         contentArea.innerHTML = `<h2>Welcome!</h2><p>Это главная страница моего сайта.</p>`;
     } 
+    else if (pageName === 'My Game Content') {
+        contentArea.innerHTML = `<h2>My Game</h2><p>Здесь информация о моей игре.</p>`;
+    }
+    else if (pageName === 'Devlog Content') {
+        contentArea.innerHTML = `<h2>Devlog</h2><p>Здесь записи о разработке.</p>`;
+    }
     else if (pageName === 'Gallery Content') {
         contentArea.innerHTML = `
             <h2 class="gallery-title">Gallery</h2>
@@ -23,8 +31,7 @@ function selectPage(clickedElement, pageName) {
                 <img src="Art_8.jpg" alt="Картинка 8" onclick="openImage('Art_8.jpg')">
                 <img src="Art_9.jpg" alt="Картинка 9" onclick="openImage('Art_9.jpg')">
                 <img src="Art_10.jpg" alt="Картинка 10" onclick="openImage('Art_10.jpg')">
-            </div>
-        `;
+            </div>`;
     } 
     else if (pageName === 'About Content') {
         contentArea.innerHTML = `
@@ -38,37 +45,28 @@ function selectPage(clickedElement, pageName) {
                 <div class="about-art">
                     <img src="Art_3.jpg" alt="Мой арт">
                 </div>
-            </div>
-        `;
+            </div>`;
     } 
     else if (pageName === 'Contact Content') {
         contentArea.innerHTML = `
             <div class="about-container">
                 <div class="about-text" style="width: 100%;">
                     <h2 class="gallery-title" style="margin-bottom: 20px;">Contact</h2>
-                    
                     <div style="display: flex; align-items: center; white-space: nowrap; gap: 10px; margin-bottom: 30px;">
                         <p class="about-text-custom" style="margin: 0;">For business inquiries, please reach out via email:</p>
-                        <span style="color: #E8E8E8; font-size: 24px; text-decoration: underline; font-family: sans-serif; cursor: text; user-select: text !important; -webkit-user-select: text !important;">
-                            allerti065@gmail.com
-                        </span>
+                        <span style="color: #E8E8E8; font-size: 24px; text-decoration: underline; font-family: sans-serif; cursor: text; user-select: text !important;">allerti065@gmail.com</span>
                     </div>
                 </div>
                 <div class="about-art">
                     <img src="Art_3.jpg" alt="Contact Art">
                 </div>
-            </div>
-        `;
-    }
-    else {
-        contentArea.innerHTML = `<h2>${pageName}</h2>`;
+            </div>`;
     }
 }
 
 function openImage(src) {
     const images = Array.from(document.querySelectorAll('.gallery-grid img'));
     let currentIndex = images.findIndex(img => img.src.includes(src));
-
     const modal = document.createElement('div');
     modal.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); display:flex; justify-content:center; align-items:center; z-index:9999; cursor:pointer;';
     
@@ -110,17 +108,12 @@ window.onload = function() {
     const lastPage = localStorage.getItem('lastSelectedPage');
     if (lastPage) {
         const links = document.querySelectorAll('.menu a');
-        links.forEach(link => {
-            if (link.textContent.trim() === lastPage.replace(' Content', '')) {
-                selectPage(link, lastPage);
-            }
-        });
+        links.forEach(link => { if (link.textContent.trim() === lastPage.replace(' Content', '')) selectPage(link, lastPage); });
     }
 };
 
-document.addEventListener('contextmenu', event => event.preventDefault()); 
+document.addEventListener('contextmenu', event => event.preventDefault());
 document.addEventListener('keydown', event => {
     if (event.ctrlKey && (event.key === 'c' || event.key === 'v' || event.key === 'u' || event.key === 'a')) event.preventDefault();
     if (event.key === 'F12') event.preventDefault();
 });
-document.addEventListener('dragstart', event => { if (event.target.tagName === 'IMG') event.preventDefault(); });
