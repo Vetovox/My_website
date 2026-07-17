@@ -41,12 +41,30 @@ function selectPage(clickedElement, pageName) {
             </div>
         `;
     } 
+    else if (pageName === 'Contact Content') {
+        contentArea.innerHTML = `
+            <div class="about-container">
+                <div class="about-text" style="width: 100%;">
+                    <h2 class="gallery-title" style="margin-bottom: 20px;">Contact</h2>
+                    
+                    <div style="display: flex; align-items: center; white-space: nowrap; gap: 10px; margin-bottom: 30px;">
+                        <p class="about-text-custom" style="margin: 0;">For business inquiries, please reach out via email:</p>
+                        <span style="color: #E8E8E8; font-size: 24px; text-decoration: underline; font-family: sans-serif; cursor: text; user-select: text !important; -webkit-user-select: text !important;">
+                            allerti065@gmail.com
+                        </span>
+                    </div>
+                </div>
+                <div class="about-art">
+                    <img src="Art_3.jpg" alt="Contact Art">
+                </div>
+            </div>
+        `;
+    }
     else {
         contentArea.innerHTML = `<h2>${pageName}</h2>`;
     }
 }
 
-// Функция для открытия картинки с перелистыванием
 function openImage(src) {
     const images = Array.from(document.querySelectorAll('.gallery-grid img'));
     let currentIndex = images.findIndex(img => img.src.includes(src));
@@ -58,7 +76,6 @@ function openImage(src) {
     img.src = src;
     img.style.cssText = 'max-height:80%; max-width:80%; border-radius:8px;';
     
-    // Позиционируем кнопки по бокам от картинки
     const prevBtn = createBtn('<', 'left: 25%');
     const nextBtn = createBtn('>', 'right: 25%');
 
@@ -85,12 +102,10 @@ function openImage(src) {
 function createBtn(text, position) {
     const btn = document.createElement('div');
     btn.innerHTML = text;
-    // Фиксируем стрелки по вертикали по центру (top: 50%)
     btn.style.cssText = `position:absolute; ${position}; top:50%; transform:translateY(-50%); color:white; font-size:60px; font-weight:bold; user-select:none; padding:20px; cursor:pointer; z-index:10000;`;
     return btn;
 }
 
-// БЛОК ЗАПОМИНАНИЯ СТРАНИЦЫ
 window.onload = function() {
     const lastPage = localStorage.getItem('lastSelectedPage');
     if (lastPage) {
@@ -103,7 +118,6 @@ window.onload = function() {
     }
 };
 
-// БЛОК ЗАЩИТЫ
 document.addEventListener('contextmenu', event => event.preventDefault()); 
 document.addEventListener('keydown', event => {
     if (event.ctrlKey && (event.key === 'c' || event.key === 'v' || event.key === 'u' || event.key === 'a')) event.preventDefault();

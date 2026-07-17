@@ -200,3 +200,26 @@ h2 {
     color: #E8E8E8;
     font-family: sans-serif;
 }
+.contact-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 1px solid #333; /* Тонкая строгая рамка */
+    color: #333;
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    background-color: #333; /* Инверсия при наведении */
+    color: #fff;
+}
+/* Разрешаем выделение только для почты */
+[href^="mailto:"] {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+    cursor: text !important;
+}
