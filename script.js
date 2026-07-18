@@ -45,9 +45,9 @@ function selectPage(clickedElement, pageName) {
                 </div>
             </div>`;
     } else if (pageName === 'My Game Content') {
-        contentArea.innerHTML = `<h2>My Game</h2><p>Здесь информация о моей игре.</p>`;
+        contentArea.innerHTML = `<h2>My Game</h2><p>==========</p>`;
     } else if (pageName === 'Devlog Content') {
-        contentArea.innerHTML = `<h2>Devlog</h2><p>Здесь записи о разработке.</p>`;
+        contentArea.innerHTML = `<h2>Devlog</h2><p>==========</p>`;
     } else if (pageName === 'Gallery Content') {
         let galleryHTML = `<h2 class="gallery-title">Gallery</h2><div class="gallery-grid">`;
         myGalleryImages.forEach(imgSrc => {
@@ -111,7 +111,7 @@ function openImage(src) {
         if (e.key === 'ArrowRight') updateImage(currentIndex + 1);
         if (e.key === 'Escape') { window.removeEventListener('keydown', keyHandler); modal.remove(); }
     };
-    window.addEventListener('keydown', keyHandler);
+    window.addEventListener('keydown', keyHandler); 
     modal.append(prevBtn, img, nextBtn);
     document.body.appendChild(modal);
 }
