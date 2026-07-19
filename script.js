@@ -9,8 +9,15 @@ function selectPage(clickedElement, pageName) {
     localStorage.setItem('lastSelectedPage', pageName);
     document.querySelectorAll('.menu a').forEach(link => link.classList.remove('active'));
     if (clickedElement) clickedElement.classList.add('active');
+    
     const sidebar = document.getElementById('sidebar');
     if (sidebar) sidebar.classList.remove('active');
+
+    // Исправление для иконки X, если она вдруг исчезает при переключении контента
+    const xIcon = document.querySelector('.fa-x-twitter');
+    if (xIcon) {
+        xIcon.classList.add('fa-brands');
+    }
 
     const contentArea = document.getElementById('content-area');
 
